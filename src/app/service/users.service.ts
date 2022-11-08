@@ -24,3 +24,24 @@ export class UsersService {
   //     .get<any>(`${this.apiURL}/?results=${size}`)
   //     .pipe(map((response) => this.processResponse(response)));
 }
+
+
+// private processResponse(response: Response): Response {
+//     return {
+//       info: { ...response.info },
+//       results: response.results.map(
+//         (user: any) => <User>(<unknown>{
+//             id: user.login.uuid,
+//             firstName: user.name.first,
+//             lastName: user.name.last,
+//             email: user.email,
+//             userName: user.login.username,
+//             gender: user.gender,
+//             address: `${user.location.street.number} ${user.location.street.name} ${user.location.city}, ${user.location.country}`,
+//             dateOfBirth: user.dob.date,
+//             phone: user.phone,
+//             imageUrl: user.picture.medium,
+//             coordinate: {
+//               latitude: +user.location.coordinates.latitude,
+//               longitude: +user.location.coordinates.longitude,
+//             },
