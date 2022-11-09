@@ -10,9 +10,8 @@ import { UsersService } from 'src/app/service/users.service';
 })
 export class UsersComponent implements OnInit {
   //felds:
-  user: User[] = [];
+  response: Response | any;
   info: Info | any;
-  responseClass: Response | any;
 
   //Constructor:
   constructor(private userService: UsersService) {}
@@ -23,14 +22,12 @@ export class UsersComponent implements OnInit {
 
   getUsers() {
     this.userService.getUsers(10).subscribe({
-      next: (response: any) => {
+      next: (results: any) => {
 
-        this.user = response.results;
-        this.info = response.info;
+        this.response = results as unknown as Response;
+        this.info = {...results.info} as unknown as Info;
 
         //Trying my on logic to check if I fully understand this - Merely testing
-        this.responseClass.info = response.info;
-        this.responseClass.results = response.results;
         
         //Might only need to do this.responsClass = response;
 

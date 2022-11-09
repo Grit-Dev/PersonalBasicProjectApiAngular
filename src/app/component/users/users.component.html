@@ -1,3 +1,67 @@
-<p>users works!</p>
 
-<p *ngFor="let users of responseClass"> {{users.id}}</p>
+<hr>
+<h2>Testing API response.Results:</h2>
+
+<table *ngIf="response" class="table table-bordered">
+    <thead class="center">
+        <th class="col">Name</th>
+        <th class="col">Email</th>
+        <th class="col">gender</th>
+        <th class="col">UserName</th>
+    </thead>
+    <tbody class="center">
+    <tr *ngFor="let users of response?.results;">
+        <td>{{users.name.first}} {{users.name.last}}</td>
+        <td>{{users.email}}</td>
+        <td>{{users.gender}}</td>
+        <td>{{users.login.username}}</td>        
+    </tr>
+    </tbody>
+</table>
+
+<p>This data is just being passed to my created object and then displayed through a loop</p>
+
+<hr>
+<hr>
+
+<h2>Testing API Response mapped to an object: </h2>
+<h3>Next test to is now put the data into an object by the way of the standard that is practised in work</h3>
+
+<br>
+
+<div *ngIf="response" class="card">
+    <div class="card-body">
+        <h5>Random user API</h5>
+        <p class="card-text">Seed: {{info.seed}}</p>
+        <p class="card-text">Results: {{info.results}}</p>
+        <p class="card-text">Seed: {{info.page}}</p>
+        <p class="card-text">Version>{{info.version}}</p>
+    </div>
+</div>
+
+
+
+
+<br>
+
+
+<table *ngIf="response" class="table table-bordered">
+    <thead class="center">
+        <th class="col">Name</th>
+        <th class="col">Email</th>
+        <th class="col">gender</th>
+        <th class="col">UserName</th>
+    </thead>
+    <tbody class="center">
+    <tr *ngFor="let users of response?.results;">
+        <td>{{users.name.first}} {{users.name.last}}</td>
+        <td>{{users.email}}</td>
+        <td>{{users.gender}}</td>
+        <td>{{users.login.username}}</td>        
+    </tr>
+    </tbody>
+</table>
+
+
+<hr>
+<hr>
