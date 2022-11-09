@@ -65,3 +65,26 @@
 
 <hr>
 <hr>
+<table *ngIf="responseID" class="table table-bordered">
+    <thead class="center">
+        <th class="col">Name</th>
+        <th class="col">Email</th>
+        <th class="col">gender</th>
+        <th class="col">UserName</th>
+        <th class="col">Test Area </th>
+    </thead>
+    <tbody class="center">
+    <tr *ngFor="let users of responseID?.results;">
+        <td>{{users.name.first}} {{users.name.last}}</td>
+        <td>{{users.email}}</td>
+        <td>{{users.gender}}</td>
+        <td>{{users.login.username}}</td>   
+        <td></td>     
+    </tr>
+    </tbody>
+</table>
+
+
+
+<hr>
+<hr>
