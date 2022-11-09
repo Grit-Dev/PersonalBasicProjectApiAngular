@@ -75,10 +75,10 @@
     </thead>
     <tbody class="center">
     <tr *ngFor="let users of responseID?.results;">
-        <td>{{users.name.first}} {{users.name.last}}</td>
+        <td>{{users.firstName}} {{users.lastName}}</td>
         <td>{{users.email}}</td>
         <td>{{users.gender}}</td>
-        <td>{{users.login.username}}</td>   
+        <td>{{users.userName}}</td>   
         <td></td>     
     </tr>
     </tbody>
