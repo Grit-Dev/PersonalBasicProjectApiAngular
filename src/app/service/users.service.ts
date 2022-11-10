@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core'; //This import is needed to inject th
 import { map, Observable } from 'rxjs';
 import { User } from '../interface/user.interface';
 import { Response } from '../interface/response.interface';
+import { UserTypicode } from '../interface/userTypicode.interface';
 //user details modules.
 
 @Injectable({
@@ -13,14 +14,27 @@ export class UsersService {
 
   private readonly apiUrl = 'https://randomuser.me/api/?results=10';
 
+  //Testing a different API
+  private readonly testingApiUrl = 'https://jsonplaceholder.typicode.com/users';
+
   constructor(private http: HttpClient) {}
+
+  //Create user:
+
+  //Post is used here to send our object to the api and an user to be added.
+  //At the end of the url we have a user object being passed to be sent across
+
+  //Observable: Think of this as a async request:
+  CreateUser(user: UserTypicode): Observable<UserTypicode> {
+    return this.http.post<UserTypicode>(`${this.testingApiUrl}`, user);
+  }
 
   //This get my api for the users
   getUsers(size: number = 10): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/?results=${size}`);
   }
 
-  //Test Try two: 
+  //Test Try two:
 
   getUserById(id: string): Observable<any> {
     return this.http

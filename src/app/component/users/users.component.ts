@@ -9,6 +9,7 @@ import { UsersService } from 'src/app/service/users.service';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
+  
   //felds:
   response: Response | any;
   info: Info | any;
@@ -21,6 +22,10 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.getUsers();
     this.getUserById();
+  }
+
+  createUser(){
+    
   }
 
   getUserById() {
