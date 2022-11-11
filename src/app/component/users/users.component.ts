@@ -28,6 +28,7 @@ export class UsersComponent implements OnInit {
     address: {
       street: 'Toranaga',
       suite: 'Yeamon',
+
       city: 'Osaka',
       zipcode: '32432432wefdwefew',
       geo: {
@@ -44,6 +45,33 @@ export class UsersComponent implements OnInit {
     },
   };
 
+  //Updating user within the API: 
+    private userUpdateApiObj: UserTypicode = {
+
+    id: 5,
+    name: 'Paul Blackthorne',
+    username: 'hatamoto',
+    email: 'paulsan@testeremail.com',
+    address: {
+      street: 'Miyamoto Musashi',
+      suite: 'Yeamon',
+
+      city: 'Kyoto',
+      zipcode: '32432432wefdwefew',
+      geo: {
+        lat: '324423423434324',
+        lng: '4645646456456456',
+      },
+    },
+    phone: '345345435345345',
+    website: 'www.shogunate.com',
+    company: {
+      name: 'Taranaga-sama-minawara',
+      catchPhrase: 'marikosan & anjin-san',
+      bs: '5000 ki',
+    },
+  };
+
   //
   // My Post Object
   //
@@ -55,12 +83,48 @@ export class UsersComponent implements OnInit {
     this.getUsers();
     this.getUserById();
 
-    //Working! 
+    //Working!
+    this.onDeleteUser();
     this.onCreateUser();
   }
 
+  
+  //
+  /// Delete user
+  //
+
+    onDeleteUser(): void {
+    this.userService.deleteUser(5).subscribe({
+      next: (result: any) => {
+        console.log(result);
+      },
+      error: () => {
+        console.log('Delete request did not work');
+      },
+    });
+  }
+
+  //
+  //
+  //
+
+  onUpdateUser(): void {
+    this.userService.updateUser(this.userUpdateApiObj).subscribe({
+      next: (result: any) => {
+        console.table(this.response);
+      },
+      error: () => {
+        console.log('Post request did not work');
+      },
+    });
+  }
+
+  //
+  //
+  //
+
   onCreateUser(): void {
-    this.userService.CreateUser(this.userPostApiObj).subscribe({
+    this.userService.createUser(this.userPostApiObj).subscribe({
       next: (result: any) => {
         console.table(this.response);
       },
